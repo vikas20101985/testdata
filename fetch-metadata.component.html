@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Meta Data Information</h1>
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!productinformation"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="productinformation">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>Description</th>
+      <th>Update</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pi of productinformation">
+      <td>{{ pi.title }}</td>
+      <td>{{ pi.description }}</td>
+      <td style="white-space: nowrap">
+        <a [routerLink]="['../fetch-metadata', pi.id ]" class="btn btn-secondary">Edit</a>&nbsp;
+        <!-- <button (click)="delete(item)" class="btn btn-danger">Delete</button> -->
+      </td>
+
+    </tr>
+  </tbody>
+</table>
